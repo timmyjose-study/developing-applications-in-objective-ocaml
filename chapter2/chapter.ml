@@ -72,4 +72,3 @@ let rec fold_left f acc l =
 let sum n = fold_left ( + ) 0 (range 1 n)
 let prod n = fold_left ( * ) 1 (range 1 n)
 let concat = fold_left ( @ ) []
-

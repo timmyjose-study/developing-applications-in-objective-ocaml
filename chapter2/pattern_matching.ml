@@ -41,3 +41,29 @@ let eq_rat pr =
   | ({ numerator = num1 ; denominator = denom1}, { numerator = num2 ; denominator = denom2 }) when num1 = num2 -> true
   | ({ numerator = num1 ; denominator = denom1}, { numerator = num2 ; denominator = denom2 }) when num1 * denom2 = num2 * denom1 -> true
   | _ -> false
+
+let char_discriminate c = 
+  match c with
+  'a' | 'A' | 'e' | 'E' | 'i' | 'I' | 'o' | 'O'| 'u' | 'U'-> "Vowel"
+  | 'a'..'z' | 'A' .. 'Z' -> "Consonant"
+  | '0' .. '9' -> "Digit"
+  | _ -> "Other"
+
+let rec size = function
+  [] -> 0
+  | _ :: t -> 1 + size t
+
+let rec fold_left f acc = function
+  [] -> acc
+  | h :: t -> fold_left f (f acc h) t
+
+let sum = fold_left ( + ) 0 
+let prod = fold_left ( * ) 1
+
+let range from till = 
+  let rec range_aux from till acc = 
+    if till < from then acc
+    else range_aux from (till - 1) (till  :: acc)
+  in
+  range_aux from till []
+
