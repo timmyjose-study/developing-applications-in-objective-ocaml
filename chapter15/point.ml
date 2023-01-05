@@ -5,9 +5,9 @@ class point (x_init, y_init) =
     method get_x = x
     method get_y = y
 
-    method moveto (a, b) =
-      x <- a;
-      y <- b
+    method moveto (new_x, new_y) =
+      x <- new_x;
+      y <- new_y
 
     method rmoveto (dx, dy) =
       x <- x + dx;
